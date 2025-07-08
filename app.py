@@ -11,9 +11,7 @@ from PIL import Image
 app = Flask(__name__)
 
 # --- 模型加载 ---
-# 自动获取当前脚本所在目录，保证无论从哪里运行都能找到模型权重
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, 'saved_models', 'garbage_classifier_mobilenet_v2.pth')
+MODEL_PATH = 'garbage_classifier_mobilenet_v2.pth'
 NUM_CLASSES = 2
 # 定义类别名称 (必须与训练时文件夹顺序一致)
 CLASS_NAMES = ['不可回收垃圾', '可回收垃圾']
