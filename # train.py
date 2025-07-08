@@ -8,13 +8,16 @@ from torchvision import datasets, models, transforms
 import os
 import time
 
+
 print("PyTorch Version: ", torch.__version__)
 print("Torchvision Version: ", torchvision.__version__)
 
 # 1. 定义超参数和数据路径
-data_dir = './dataset'
+# 自动获取当前脚本所在目录，保证无论从哪里运行都能找到数据集
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+data_dir = os.path.join(BASE_DIR, 'dataset')
 # 模型将保存到这个文件
-MODEL_PATH = 'saved_models/garbage_classifier_mobilenet_v2.pth'
+MODEL_PATH = os.path.join(BASE_DIR, 'saved_models', 'garbage_classifier_mobilenet_v2.pth')
 NUM_CLASSES = 2
 BATCH_SIZE = 32
 NUM_EPOCHS = 15 # 训练轮次
